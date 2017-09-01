@@ -1,19 +1,36 @@
+import fs = require('fs');
+import path = require('path');
 import tl = require('vsts-task-lib/task');
 //npm install vsts-task-lib
 
-// Get task parameters
-let variable1: string = tl.getPathInput('variable1', false, true);
-let variable2: string = tl.getInput('variable2', true);
 
 
 
 async function run() {
     try {
-        //do your actions
-        tl.debug('variable1:' +variable1)
-        tl.debug('variable2:' +variable2)
-        
+        // Get task parameters
+        let command: string = tl.getInput("Command");
+        let sourceFile: string = path.normalize(
+            tl.getPathInput('SourceFile', false, true)
+        );
+        let newName: string = tl.getInput("NewName", false);
+
+        switch (command) {
+            case "rename":
+                let dir: string = path.dirname(sourceFile);
+                fs.renameSync(
+                    sourceFile,
+                    dir + path.delimiter + newName
+                )
+                break;
+
+            default:
+                break;
+        }
+
+        tl.setResult(tl.TaskResult.Succeeded, 'Succeeded');
     } catch (err) {
+        tl.error(err.message);
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }
