@@ -18,14 +18,18 @@ async function run() {
         switch (command) {
             case "rename":
                 let dir: string = path.dirname(sourceFile);
+                let newFile = dir + path.delimiter + newName;
+                if (fs.existsSync(newFile)) {
+                    throw 'File already exists : ' + newFile;
+                }
                 fs.renameSync(
                     sourceFile,
-                    dir + path.delimiter + newName
+                    newFile
                 )
                 break;
 
             default:
-                break;
+                throw 'Unknown command : ' + command
         }
 
         tl.setResult(tl.TaskResult.Succeeded, 'Succeeded');
