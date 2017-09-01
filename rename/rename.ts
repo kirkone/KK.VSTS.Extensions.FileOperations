@@ -15,10 +15,15 @@ async function run() {
         );
         let newName: string = tl.getInput("NewName", false);
 
+        console.log('Running command: ' + command);
+
         switch (command) {
             case "rename":
                 let dir: string = path.dirname(sourceFile);
-                let newFile = dir + path.delimiter + newName;
+                let newFile = dir + path.sep + newName;
+
+                console.log('New File name: ' + newFile);
+                
                 if (fs.existsSync(newFile)) {
                     throw 'File already exists : ' + newFile;
                 }
@@ -34,7 +39,6 @@ async function run() {
 
         tl.setResult(tl.TaskResult.Succeeded, 'Succeeded');
     } catch (err) {
-        tl.error(err.message);
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }

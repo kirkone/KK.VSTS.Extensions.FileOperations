@@ -1,6 +1,6 @@
 File Operations
 
-Copyright (c) //TODO:Add owners name
+Copyright (c) Kirsten Kluge
 
 All rights reserved.
 

@@ -8,17 +8,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs");
+const path = require("path");
 const tl = require("vsts-task-lib/task");
 //npm install vsts-task-lib
-// Get task parameters
-let variable1 = tl.getPathInput('variable1', false, true);
-let variable2 = tl.getInput('variable2', true);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            //do your actions
-            tl.debug('variable1:' + variable1);
-            tl.debug('variable2:' + variable2);
+            // Get task parameters
+            let command = tl.getInput("Command");
+            let sourceFile = path.normalize(tl.getPathInput('SourceFile', false, true));
+            let newName = tl.getInput("NewName", false);
+            console.log('Running command: ' + command);
+            switch (command) {
+                case "rename":
+                    let dir = path.dirname(sourceFile);
+                    let newFile = dir + path.sep + newName;
+                    console.log('New File name: ' + newFile);
+                    if (fs.existsSync(newFile)) {
+                        throw 'File already exists : ' + newFile;
+                    }
+                    fs.renameSync(sourceFile, newFile);
+                    break;
+                default:
+                    throw 'Unknown command : ' + command;
+            }
+            tl.setResult(tl.TaskResult.Succeeded, 'Succeeded');
         }
         catch (err) {
             tl.setResult(tl.TaskResult.Failed, err.message);

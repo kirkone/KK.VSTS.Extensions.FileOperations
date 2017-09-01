@@ -1,12 +1,13 @@
 {
   "manifestVersion": 1,
   "id": "fileoperations",
-  "version": "0.1.1",
+  "version": "0.1.19",
   "name": "File Operations",
   "scopes": [],
-  "description": "This extension enable basic file operations  on build or release",
+  "description": "This extension enables basic file operations on build or release",
   "publisher": "KirKone",
   "galleryFlags": [
+    "Public",    
     "Preview"
   ],
   "icons": {
@@ -21,7 +22,8 @@
     "api-version/3.0"
   ],
   "tags": [
-    "Sample"
+    "File",
+    "Rename"
   ],
   "categories": [
     "Build and release"
@@ -36,23 +38,23 @@
       "path": "license.md"
     },
     "details": {
-      "path": "overview.md"
+      "path": "README.md"
     }
   },
   "links": {
     "getstarted": {
-      "uri": "https://bit.ly"
+      "uri": "https://github.com/kirkone/KK.VSTS.Extensions.FileOperations"
     },
     "support": {
-      "uri": "https://bit.ly"
+      "uri": "https://github.com/kirkone/KK.VSTS.Extensions.FileOperations"
     },
     "issues": {
-      "uri": "https://bit.ly"
+      "uri": "https://github.com/kirkone/KK.VSTS.Extensions.FileOperations/issues"
     }
   },
   "repository": {
     "type": "git",
-    "uri": "https://bit.ly"
+    "uri": "https://github.com/kirkone/KK.VSTS.Extensions.FileOperations"
   },
   "branding": {
     "color": "rgb(220, 235, 252)",
