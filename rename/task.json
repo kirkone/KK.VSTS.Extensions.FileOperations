@@ -1,0 +1,37 @@
+{
+   "id": "070a44c5-c554-4e46-ab56-4c1c30c5dc5d",
+   "name": "rename",
+   "friendlyName": "File Rename",
+   "description": "Rename files with custom inputs",
+   "helpMarkDown": "[More Information](https://url.to/yourmarkdown)",
+   "category": "Utility",
+   "visibility": ["Build","Release"],
+   "author": "",
+   "version": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 0
+   },
+   "demands": [],
+   "inputs": [
+      {
+         "name": "variable1",
+         "type": "filePath",
+         "label": "Path to Solution File",
+         "defaultValue": "",
+         "required": true
+      },
+      {
+         "name": "variable2",
+         "type": "string",
+         "label": "Sample text variable",
+         "defaultValue": "",
+         "required": false,
+         "helpMarkDown": "This will give you a hover-over tooltip"
+      }
+   ],
+   "instanceNameFormat": "rename",
+   "execution":
+    {"Node":{"target":"rename.js"}}
+   
+}
