@@ -1,7 +1,6 @@
 import fs = require('fs');
 import path = require('path');
-import tl = require('vsts-task-lib/task');
-//npm install vsts-task-lib
+import tl = require('azure-pipelines-task-lib/task');
 
 
 
