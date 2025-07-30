@@ -16,8 +16,8 @@
     "author": "Kirsten Kluge",
     "version": {
         "Major": 0,
-        "Minor": 1,
-        "Patch": 4
+        "Minor": 2,
+        "Patch": 0
     },
     "demands": [],
     "minimumAgentVersion": "2.0.0",
@@ -65,7 +65,7 @@
     ],
     "instanceNameFormat": "$(Command): $(SourceFile)",
     "execution": {
-        "Node": {
+        "Node20": {
             "target": "rename.js"
         }
     }

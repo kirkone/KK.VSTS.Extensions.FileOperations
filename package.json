@@ -7,9 +7,10 @@
     "install-task-lib" : "cd rename && npm install --save-dev"
   },
   "devDependencies": {
-    "@types/node": "^8.0.7",
-    "tfx-cli": "^0.4.5",
-    "typescript": "2.3.4"
+    "@types/node": "^20.0.0",
+    "rimraf": "^6.0.0",
+    "tfx-cli": "^0.21.0",
+    "typescript": "^5.0.0"
   },
   "name": "vstsexttask",
   "private": true,
