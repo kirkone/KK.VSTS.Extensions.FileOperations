@@ -65,7 +65,7 @@
     ],
     "instanceNameFormat": "$(Command): $(SourceFile)",
     "execution": {
-        "Node": {
+        "Node16": {
             "target": "rename.js"
         }
     }
